@@ -8,7 +8,10 @@ m = length(y); % number of training examples
 J_history = zeros(num_iters, 1);
 
 for iter = 1:num_iters
-
+    
+    h = X*theta; % hypothesis function vector
+    theta = theta - X'*(h-y)*alpha/m;
+    
     % ====================== YOUR CODE HERE ======================
     % Instructions: Perform a single gradient step on the parameter vector
     %               theta. 

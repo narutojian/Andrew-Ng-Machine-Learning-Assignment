@@ -6,16 +6,17 @@ function [theta, J_history] = gradientDescent(X, y, theta, alpha, num_iters)
 % Initialize some useful values
 m = length(y); % number of training examples
 J_history = zeros(num_iters, 1);
-num_para = length(theta); % the number of parameter in theta
+%num_para = length(theta); % the number of parameter in theta
 
 for iter = 1:num_iters
     
     h = X*theta; % hypothesis function vector
     
-    for num = 1: num_para
-      theta(num) = theta(num) - alpha*((h-y)'*X(:,num))/m;
-    endfor
+    % for num = 1: num_para
+    %  theta(num) = theta(num) - alpha*((h-y)'*X(:,num))/m;
+    % endfor 
     
+    theta = theta - X'*(h-y)*alpha/m;
     % ====================== YOUR CODE HERE ======================
     % Instructions: Perform a single gradient step on the parameter vector
     %               theta. 
